@@ -27,13 +27,14 @@ class Contact
 
   # This method should return all of the existing contacts
   def self.all
+    return @@contacts
 
   end
 
   # This method should accept an id as an argument
   # and return the contact who has that id
   def self.find
-
+    
   end
 
   # This method should allow you to specify 
@@ -49,7 +50,7 @@ class Contact
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
   def self.find_by
-
+    
   end
 
   # This method should delete all of the contacts
@@ -70,3 +71,6 @@ class Contact
   # Feel free to add other methods here, if you need them.
   
 end
+
+Contact.create("Yossi", "Goldberg", "hgjdf", "jhsg")
+Contact.find
