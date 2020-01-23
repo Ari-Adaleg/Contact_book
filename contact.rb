@@ -85,7 +85,7 @@ class Contact
   end
 
   def full_name
-
+  	return "#{@first_name} #{@last_name}"
   end
 
   # This method should delete the contact
@@ -98,8 +98,10 @@ class Contact
   
 end
 
-Contact.create("Yossi", "Goldberg", "hgjdf", "jhsg")
+a = Contact.create("Yossi", "Goldberg", "hgjdf", "jhsg")
 # p Contact.find(1)
 p Contact.find_by("1", "Yossi")
 Contact.delete_all
 p Contact.all
+
+p a.full_name
