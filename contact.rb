@@ -80,6 +80,7 @@ class Contact
 
   # This method should delete all of the contacts
   def self.delete_all
+    @@contacts.clear
 
   end
 
@@ -100,3 +101,5 @@ end
 Contact.create("Yossi", "Goldberg", "hgjdf", "jhsg")
 # p Contact.find(1)
 p Contact.find_by("1", "Yossi")
+Contact.delete_all
+p Contact.all
