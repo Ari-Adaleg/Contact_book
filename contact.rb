@@ -27,18 +27,21 @@ class Contact
 
   # This method should return all of the existing contacts
   def self.all
-    return @@contacts
+    @@contacts.each do |a|
+    	puts "First name: #{a.first_name}, Last name: #{a.last_name}, Email: #{a.email}, Note: #{a.note}, ID: #{a.id}\n\n"
+    end
 
   end
 
   # This method should accept an id as an argument
   # and return the contact who has that id
   def self.find(id)
-    @@contacts.each do |i|
-      if i == id 
-        p i 
+    @@contacts.each do |contact|
+      if contact.id == id 
+        return contact
       end
-    end 
+    end
+    return nil
     
   end
 
@@ -66,19 +69,19 @@ class Contact
   	if type == "1"
   		@@contacts.each do |f|
   			if f.first_name == input
-  				return f.first_name
+  				return "First name: #{f.first_name}, Last name: #{f.last_name}, Email: #{f.email}, Note: #{f.note}"
   			end
   		end
   	elsif type == "2"
   		@@contacts.each do |l|
   			if l.last_name == input
-  				return l.last_name
+  				return "First name: #{l.first_name}, Last name: #{l.last_name}, Email: #{l.email}, Note: #{l.note}"
   			end
   		end
   	elsif type == "3"
   		@@contacts.each do |e|
   			if e.email == input
-  				return e.email
+  				return "First name: #{e.first_name}, Last name: #{e.last_name}, Email: #{e.email}, Note: #{e.note}"
   			end
   		end
   	end
@@ -99,15 +102,9 @@ class Contact
   # This method should delete the contact
   # HINT: Check the Array class docs for built-in methods that might be useful here
   def delete
-
+  	@@contacts.delete(self)
   end
 
   # Feel free to add other methods here, if you need them.
   
 end
-
-a = Contact.create("Yossi", "Goldberg", "hgjdf", "jhsg")
-# p Contact.find(1)
-p Contact.find_by("1", "Yossi")
-a.update("3", "yygold")
-p Contact.all
